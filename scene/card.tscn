@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmjc4uj36mjhp"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_crxcu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3u7j"]
+size = Vector2(97, 151)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ps7rd"]
+size = Vector2(100, 150)
+
+[node name="Card" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(52, 78)
+input_pickable = true
+mass = 0.089
+gravity_scale = 0.0
+script = ExtResource("1_crxcu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_c3u7j")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+visible = false
+texture = SubResource("PlaceholderTexture2D_ps7rd")
+
+[connection signal="input_event" from="RigidBody2D" to="RigidBody2D" method="_on_input_event"]
+[connection signal="mouse_entered" from="RigidBody2D" to="RigidBody2D" method="_on_mouse_entered"]
