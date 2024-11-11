@@ -22,7 +22,6 @@ position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_c3u7j")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-visible = false
 texture = SubResource("PlaceholderTexture2D_ps7rd")
 
 [connection signal="input_event" from="RigidBody2D" to="RigidBody2D" method="_on_input_event"]
